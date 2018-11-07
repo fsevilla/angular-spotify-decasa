@@ -25,10 +25,9 @@ export class SearchService {
   }
 
   getAlbums():Promise<any> {
-  	let url = `${this.apiUrl}albums`;
+    let url = `${this.apiUrl}albums`;
 
-  	// Hacer la llamada http
-  	return this.httpClient.get(url).toPromise();
+    return this.httpClient.get(url).toPromise();
   }
 
   getAlbum(albumId:number):Promise<any> {

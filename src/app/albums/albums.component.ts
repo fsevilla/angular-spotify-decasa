@@ -12,7 +12,7 @@ export class AlbumsComponent implements OnInit {
   albums:any[] = [];
 
   constructor(
-  	private searchService:SearchService
+  	private searchService: SearchService
   ) { }
 
   ngOnInit() {
@@ -23,10 +23,9 @@ export class AlbumsComponent implements OnInit {
   	this.searchService.getAlbums()
   		.then(res => {
   			this.albums = res;
-  			console.log('Albums: ', res);
   		})
-  		.catch((error) => {
-  			console.error('No pude traer datos', error);
+  		.catch(error => {
+  			console.error('Something failed: ', error);
   		});
   }
 
