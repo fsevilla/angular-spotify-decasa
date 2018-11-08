@@ -1,6 +1,9 @@
-<a routerLink="/albums">Regresar al listado</a>
+<button (click)="goBack()">Regresar al listado</button>
 
-<p>
-  album-details works!
-</p>
 
+<p *ngIf="!isLoaded">Cargando datos...</p>
+
+<div *ngIf="isLoaded">
+	<h3>Detalles del album: {{album.title}}</h3>
+	<h4>Artista: {{artist.name}}</h4>
+</div>

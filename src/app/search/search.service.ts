@@ -36,4 +36,10 @@ export class SearchService {
   	// Hacer la llamada http
   	return this.httpClient.get(url).toPromise();
   }
+
+  getArtist(artistId:number):Promise<any> {
+    let url = `${this.apiUrl}users/${artistId}`;
+
+    return this.httpClient.get(url).toPromise();
+  }
 }

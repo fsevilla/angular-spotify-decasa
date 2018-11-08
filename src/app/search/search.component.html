@@ -1,3 +1,6 @@
 <h2>{{title}}</h2>
 
-Search works
+<form (submit)="searchArtists()">
+	<input type="text" name="artist" [(ngModel)]="artistName" placeholder="Nombre del artista...">
+	<button>Buscar</button>
+</form>
