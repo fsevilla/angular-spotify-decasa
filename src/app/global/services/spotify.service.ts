@@ -2,23 +2,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { environment } from './../../../environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyService {
 
-  token:string = 'BQA-nlTP-3k9wRsh6yLUmgOelwAMQpeHsyrDcddVNrC2dIp4sMXt18xa2qR_LuwhJNTyLbt7n0eFhDSeJqLrnR9PKMeWav5FLD9o-QoUsNSSMZo_FDUml6kV4zlbxsZW2TA8bj00ZfTe01KuigRXFv-DNKwllRQtuhxi2cLS4UgunYcO_JaS_SG2Sti2Gf5CJR5rlg';
+  token:string = '';
 
   constructor(
-  	private httpClient: HttpClient
-  ) { }
+  	private httpClient: HttpClient,
+    private authService: AuthService
+  ) {
+    let token = this.authService.getToken();
+    this.token = `${token.token_type} ${token.access_token}`;
+  }
 
   private getHeaders() {
     let headers = new HttpHeaders()
       .set('Accept', 'application/json')
       .set('Content-Type', 'application/json')
-      .set('Authorization', `Bearer ${this.token}`);
+      .set('Authorization', `${this.token}`);
 
     return headers;
   }
