@@ -8,7 +8,7 @@ import { environment } from './../../../environments/environment';
 })
 export class SpotifyService {
 
-  token:string = 'BQAerArbc7p9fu-02cGvX6zN6OBjn6Zesq8b4UAfmY-EQU-8HXMgRapfDhU5ehRHGVpW3-VKNPg-xQtpaLOJdE86XPYVNo9ghZbEBb7vi-8tnp7V1UaP7u5_FptzH0IUOIBI69PXF9HcXAbYecutHBwLST_twDMo06V6qiX8_ql_5TDhH_TpDaVrbCvEQfCQl_cs9w';
+  token:string = 'BQA7Ii6nwQBUyQRUCqp-akQR-3CDjmY9i955ukLZ-DUg_2pf90BG0f3OWd46_5YnvQIpwGLznowU7MvaH9EWzXWY0tOJ8rn8MY0cpq2WMBZkL2SBIOgLnEj-82tZUVc65sMPvb-HnfVFxy8jWB9aLkmWdOlGSYvt7UIRIFVotvMGh86h4Mz4ZIx6wbNyUAJCoKFnag';
 
   constructor(
   	private httpClient: HttpClient
@@ -30,6 +30,19 @@ export class SpotifyService {
   			headers,
   			params
   		}).toPromise();
+  }
+
+  getArtist(artistId:string):Promise<any> {
+    let url = `${environment.spotifyApi}artists/${artistId}`;
+
+    let headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${this.token}`);
+
+    return this.httpClient.get(url, {
+      headers
+    }).toPromise();
   }
 }
 

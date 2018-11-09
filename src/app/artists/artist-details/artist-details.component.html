@@ -1,0 +1,9 @@
+<div *ngIf="isDataLoaded">
+
+	<h3>Artist: {{artist.name}}</h3>
+	<img [src]="imageUrl" alt="">
+
+	<p *ngIf="artist.followers">Followers: {{artist.followers.total | number}}</p>
+</div>
+
+<button (click)="goBack()">Regresar</button>

@@ -5,11 +5,15 @@ import { SearchComponent } from './search/search.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { AlbumDetailsComponent } from './albums/album-details/album-details.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ArtistDetailsComponent } from './artists/artist-details/artist-details.component';
+import { ArtistsComponent } from './artists/artists.component';
 
 const routes:Routes = [
 	{ path: '', component: SearchComponent },
 	{ path: 'albums', component: AlbumsComponent },
 	{ path: 'albums/:id', component: AlbumDetailsComponent },
+	{ path: 'artists', component: ArtistsComponent },
+	{ path: 'artists/:id', component: ArtistDetailsComponent },
 	{ path: '404', component: NotFoundComponent },
 	{ path: '**', redirectTo: '404', pathMatch: 'full' }
 ];
@@ -27,4 +31,7 @@ export class AppRoutingModule { }
 
 	Se define asi:
 	albums/:albumId/songs/:songId
+
+	IMPORTANTE: Las rutas se cargan en orden. El primer match es el que se muestra. 
+	E.g. albums/create, albums/:id   -> deben estar en ese orden
 */

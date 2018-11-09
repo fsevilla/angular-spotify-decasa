@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { SpotifyService } from './../global/services/spotify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -13,21 +12,18 @@ export class SearchComponent implements OnInit {
   artistName:string;
 
   constructor(
-  	private spotifyService: SpotifyService
+  	private router: Router
   ) { }
 
   ngOnInit() {
   }
 
   searchArtists() {
-  	console.log('do search', this.artistName);
-  	this.spotifyService.searchArtists(this.artistName)
-  		.then(res => {
-  			console.log('Response: ', res);
-  		})
-  		.catch(error => {
-  			console.error('Error: ', error);
-  		});
+  	this.router.navigate(['/artists'], {
+      queryParams: {
+        name: this.artistName
+      }
+    });
   }
 
 }

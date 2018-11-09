@@ -9,6 +9,9 @@ import { SearchComponent } from './search/search.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { AlbumDetailsComponent } from './albums/album-details/album-details.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ArtistsComponent } from './artists/artists.component';
+import { ArtistDetailsComponent } from './artists/artist-details/artist-details.component';
+import { NoAplicaPipe } from './global/pipes/no-aplica.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
     SearchComponent,
     AlbumsComponent,
     AlbumDetailsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ArtistsComponent,
+    ArtistDetailsComponent,
+    NoAplicaPipe
   ],
   imports: [
     BrowserModule,
