@@ -4,6 +4,8 @@
 	<img [src]="imageUrl" alt="">
 
 	<p *ngIf="artist.followers">Followers: {{artist.followers.total | number}}</p>
+
+	<app-progress-bar [progress]="artist.popularity"></app-progress-bar>
 </div>
 
 <button (click)="goBack()">Regresar</button>

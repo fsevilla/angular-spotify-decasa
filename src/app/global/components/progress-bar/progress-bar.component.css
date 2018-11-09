@@ -1,0 +1,17 @@
+.progress-bar{
+	background-color: #f0f0f0;
+	height: 40px;
+}
+
+.progress-bar div {
+	height: inherit;
+	background-color: #d1622b;
+}
+
+.progress-bar div.medium {
+	background-color: #d1b52b;	
+}
+
+.progress-bar div.high {
+	background-color: #00ff00;	
+}

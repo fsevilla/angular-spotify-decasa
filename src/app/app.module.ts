@@ -12,6 +12,8 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ArtistsComponent } from './artists/artists.component';
 import { ArtistDetailsComponent } from './artists/artist-details/artist-details.component';
 import { NoAplicaPipe } from './global/pipes/no-aplica.pipe';
+import { ProgressStatusDirective } from './global/directives/progress-status.directive';
+import { ProgressBarComponent } from './global/components/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { NoAplicaPipe } from './global/pipes/no-aplica.pipe';
     NotFoundComponent,
     ArtistsComponent,
     ArtistDetailsComponent,
-    NoAplicaPipe
+    NoAplicaPipe,
+    ProgressStatusDirective,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
