@@ -7,6 +7,8 @@ import { AlbumDetailsComponent } from './albums/album-details/album-details.comp
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ArtistDetailsComponent } from './artists/artist-details/artist-details.component';
 import { ArtistsComponent } from './artists/artists.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { LoginComponent } from './login/login.component';
 
 const routes:Routes = [
 	{ path: '', component: SearchComponent },
@@ -14,8 +16,10 @@ const routes:Routes = [
 	{ path: 'albums/:id', component: AlbumDetailsComponent },
 	{ path: 'artists', component: ArtistsComponent },
 	{ path: 'artists/:id', component: ArtistDetailsComponent },
+	{ path: 'confirm', component: ConfirmationComponent },
+	{ path: 'login', component: LoginComponent },
 	{ path: '404', component: NotFoundComponent },
-	{ path: '**', redirectTo: '404', pathMatch: 'full' }
+	{ path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

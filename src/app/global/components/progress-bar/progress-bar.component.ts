@@ -15,7 +15,6 @@ export class ProgressBarComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-  	console.log('Progress bar: ', this.progress);
   }
 
 }

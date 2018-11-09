@@ -12,8 +12,10 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ArtistsComponent } from './artists/artists.component';
 import { ArtistDetailsComponent } from './artists/artist-details/artist-details.component';
 import { NoAplicaPipe } from './global/pipes/no-aplica.pipe';
-import { ProgressStatusDirective } from './global/directives/progress-status.directive';
 import { ProgressBarComponent } from './global/components/progress-bar/progress-bar.component';
+import { ProgressBarStatusDirective } from './global/directives/progress-bar-status.directive';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,10 @@ import { ProgressBarComponent } from './global/components/progress-bar/progress-
     ArtistsComponent,
     ArtistDetailsComponent,
     NoAplicaPipe,
-    ProgressStatusDirective,
-    ProgressBarComponent
+    ProgressBarComponent,
+    ProgressBarStatusDirective,
+    ConfirmationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
