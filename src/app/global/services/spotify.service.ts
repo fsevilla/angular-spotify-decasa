@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { environment } from './../../../environments/environment';
 import { AuthService } from './auth.service';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +17,8 @@ export class SpotifyService {
 
   constructor(
   	private httpClient: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     let token = this.authService.getToken();
     this.token = `${token.token_type} ${token.access_token}`;
@@ -26,6 +31,15 @@ export class SpotifyService {
       .set('Authorization', `${this.token}`);
 
     return headers;
+  }
+
+  private handleError(error:any) {
+    if(error.status === 401) {
+      this.authService.clearToken();
+      this.router.navigate(['/login']);
+    }
+
+    return throwError(error);
   }
 
   getToken(code:string):Promise<any> {
@@ -45,7 +59,9 @@ export class SpotifyService {
 
     return this.httpClient.post(url, params.toString(), {
       headers
-    }).toPromise();
+    })
+    .pipe(catchError(this.handleError.bind(this)))
+    .toPromise();
 
   }
 
@@ -61,7 +77,9 @@ export class SpotifyService {
   	return this.httpClient.get(url, {
   			headers,
   			params
-  		}).toPromise();
+  		})
+    .pipe(catchError(this.handleError.bind(this)))
+    .toPromise();
   }
 
   getArtist(artistId:string):Promise<any> {
@@ -71,7 +89,9 @@ export class SpotifyService {
 
     return this.httpClient.get(url, {
       headers
-    }).toPromise();
+    })
+    .pipe(catchError(this.handleError.bind(this)))
+    .toPromise();
   }
 
 }

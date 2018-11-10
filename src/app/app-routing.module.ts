@@ -9,13 +9,14 @@ import { ArtistDetailsComponent } from './artists/artist-details/artist-details.
 import { ArtistsComponent } from './artists/artists.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './global/guards/auth.guard';
 
 const routes:Routes = [
-	{ path: '', component: SearchComponent },
+	{ path: '', component: SearchComponent, canActivate: [ AuthGuard ] },
 	{ path: 'albums', component: AlbumsComponent },
 	{ path: 'albums/:id', component: AlbumDetailsComponent },
-	{ path: 'artists', component: ArtistsComponent },
-	{ path: 'artists/:id', component: ArtistDetailsComponent },
+	{ path: 'artists', component: ArtistsComponent, canActivate: [ AuthGuard ] },
+	{ path: 'artists/:id', component: ArtistDetailsComponent, canActivate: [ AuthGuard ] },
 	{ path: 'confirm', component: ConfirmationComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: '404', component: NotFoundComponent },
